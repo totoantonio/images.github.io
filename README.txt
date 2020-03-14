@@ -1,6 +1,3 @@
-Thanks for downloading this template!
+This Template is from Softland. Tweaked and heavily modified by TOTO AHTOHNO!
 
-Template Name: SoftLand
-Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+All Rights Reserved!
