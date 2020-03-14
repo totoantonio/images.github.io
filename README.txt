@@ -1,3 +1,6 @@
-This Template is from Softland. Tweaked and heavily modified by TOTO AHTOHNO!
+Thanks for downloading this template!
 
-All Rights Reserved!
+Template Name: DevFolio
+Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+Author: BootstrapMade.com
+License: https://bootstrapmade.com/license/

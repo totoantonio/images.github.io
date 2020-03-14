@@ -1,11 +1,30 @@
 /**
-* Template Name: SoftLand - v2.0.0
-* Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
+* Template Name: DevFolio - v2.0.0
+* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
 (function($) {
   "use strict";
+
+  var nav = $('nav');
+  var navHeight = nav.outerHeight();
+
+  $('.navbar-toggler').on('click', function() {
+    if (!$('#mainNav').hasClass('navbar-reduce')) {
+      $('#mainNav').addClass('navbar-reduce');
+    }
+  })
+
+  // Preloader
+  $(window).on('load', function() {
+    if ($('#preloader').length) {
+      $('#preloader').delay(100).fadeOut('slow', function() {
+        $(this).remove();
+      });
+    }
+  });
+
   // Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
@@ -20,100 +39,93 @@
     }, 1500, 'easeInOutExpo');
     return false;
   });
-  var siteMenuClone = function() {
-    $('.js-clone-nav').each(function() {
-      var $this = $(this);
-      $this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
-    });
-    setTimeout(function() {
-      var counter = 0;
-      $('.site-mobile-menu .has-children').each(function() {
-        var $this = $(this);
-        $this.prepend('<span class="arrow-collapse collapsed">');
-        $this.find('.arrow-collapse').attr({
-          'data-toggle': 'collapse',
-          'data-target': '#collapseItem' + counter,
-        });
-        $this.find('> ul').attr({
-          'class': 'collapse',
-          'id': 'collapseItem' + counter,
-        });
-        counter++;
-      });
-    }, 1000);
-    $('body').on('click', '.arrow-collapse', function(e) {
-      var $this = $(this);
-      if ($this.closest('li').find('.collapse').hasClass('show')) {
-        $this.removeClass('active');
-      } else {
-        $this.addClass('active');
-      }
-      e.preventDefault();
-    });
-    $(window).resize(function() {
-      var $this = $(this),
-        w = $this.width();
-      if (w > 768) {
-        if ($('body').hasClass('offcanvas-menu')) {
-          $('body').removeClass('offcanvas-menu');
-        }
-      }
-    })
-    $('body').on('click', '.js-menu-toggle', function(e) {
-      var $this = $(this);
-      e.preventDefault();
-      if ($('body').hasClass('offcanvas-menu')) {
-        $('body').removeClass('offcanvas-menu');
-        $('body').find('.js-menu-toggle').removeClass('active');
-      } else {
-        $('body').addClass('offcanvas-menu');
-        $('body').find('.js-menu-toggle').addClass('active');
-      }
-    })
-    // click outisde offcanvas
-    $(document).mouseup(function(e) {
-      var container = $(".site-mobile-menu");
-      if (!container.is(e.target) && container.has(e.target).length === 0) {
-        if ($('body').hasClass('offcanvas-menu')) {
-          $('body').removeClass('offcanvas-menu');
-          $('body').find('.js-menu-toggle').removeClass('active');
-        }
-      }
-    });
-  };
-  siteMenuClone();
-  var siteScroll = function() {
-    $(window).scroll(function() {
-      var st = $(this).scrollTop();
-      if (st > 100) {
-        $('.js-sticky-header').addClass('shrink');
-      } else {
-        $('.js-sticky-header').removeClass('shrink');
-      }
-    })
-  };
-  siteScroll();
-  var siteSticky = function() {
-    $(".js-sticky-header").sticky({
-      topSpacing: 0
-    });
-  };
-  siteSticky();
-  var siteOwlCarousel = function() {
-    $('.testimonial-carousel').owlCarousel({
-      center: true,
-      items: 1,
-      loop: true,
-      margin: 0,
-      autoplay: true,
-      smartSpeed: 1000,
-    });
-  };
-  siteOwlCarousel();
-})(jQuery);
 
-AOS.init({
-  easing: 'ease',
-  duration: 1000,
-  once: true
-});
+  /*--/ Star ScrollTop /--*/
+  $('.scrolltop-mf').on("click", function() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 1000);
+  });
+
+  /*--/ Star Counter /--*/
+  $('.counter').counterUp({
+    delay: 15,
+    time: 2000
+  });
+
+  /*--/ Star Scrolling nav /--*/
+  $('a.js-scroll[href*="#"]:not([href="#"])').on("click", function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - navHeight + 5)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  });
+
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll').on("click", function() {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+  // Activate scrollspy to add active class to navbar items on scroll
+  $('body').scrollspy({
+    target: '#mainNav',
+    offset: navHeight
+  });
+  /*--/ End Scrolling nav /--*/
+
+  /*--/ Navbar Menu Reduce /--*/
+  $(window).trigger('scroll');
+  $(window).on('scroll', function() {
+    var pixels = 50;
+    var top = 1200;
+    if ($(window).scrollTop() > pixels) {
+      $('.navbar-expand-md').addClass('navbar-reduce');
+      $('.navbar-expand-md').removeClass('navbar-trans');
+    } else {
+      $('.navbar-expand-md').addClass('navbar-trans');
+      $('.navbar-expand-md').removeClass('navbar-reduce');
+    }
+    if ($(window).scrollTop() > top) {
+      $('.scrolltop-mf').fadeIn(1000, "easeInOutExpo");
+    } else {
+      $('.scrolltop-mf').fadeOut(1000, "easeInOutExpo");
+    }
+  });
+
+  /*--/ Star Typed /--*/
+  if ($('.text-slider').length == 1) {
+    var typed_strings = $('.text-slider-items').text();
+    var typed = new Typed('.text-slider', {
+      strings: typed_strings.split(','),
+      typeSpeed: 80,
+      loop: true,
+      backDelay: 1100,
+      backSpeed: 30
+    });
+  }
+
+  /*--/ Testimonials owl /--*/
+  $('#testimonial-mf').owlCarousel({
+    margin: 20,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1,
+      }
+    }
+  });
+
+  // Initiate venobox (lightbox feature used in portofilo)
+  $(document).ready(function() {
+    $('.venobox').venobox();
+  });
+
+})(jQuery);
