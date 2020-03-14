@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: -apple-system-body, "Google Sans", sans-serif;
   color: #9fa1a4;
   line-height: 1.5;
 }
@@ -28,7 +28,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: "Poppins", sans-serif;
+  font-family: -apple-system-body, "Google Sans", sans-serif;
   color: #000;
 }
 
