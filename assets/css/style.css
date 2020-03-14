@@ -66,7 +66,7 @@ figure figcaption {
 .section-heading {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(-45deg, #3db3c5, #274685);
+  background: linear-gradient(-45deg, #504e4e, #a1a3a7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
