@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: font-family: "Google Sans",Roboto,Arial,Helvetica,sans-serif;
+  font-family:"Google Sans",Roboto,Arial,Helvetica,sans-serif;
   color: #9fa1a4;
   line-height: 1.5;
 }
@@ -28,7 +28,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: font-family: "Google Sans",Roboto,Arial,Helvetica,sans-serif;
+  font-family:"Google Sans",Roboto,Arial,Helvetica,sans-serif;
   color: #000;
 }
 
